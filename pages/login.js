@@ -1,4 +1,3 @@
-'use client'
 import { useRouter } from 'next/router';
 import { setCookie } from 'cookies-next';
 import { TextField, Button, Container, Typography, Grid, CssBaseline } from '@mui/material';
