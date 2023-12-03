@@ -90,18 +90,32 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
 
 export async function getServerSideProps({ query }) {
   const currentPage = parseInt(query.page, 10) || 1;
-  const resp = await axios(`${process.env.API_BASE_URL}/publications`);
-  const pagination = resp.data.response.pagination;
-  const {totalPages} = pagination;
-  const entries = resp.data.response.content;
+  const apiUrl = `${process.env.API_BASE_URL}/api/publications`;
 
-  return {
-    props: {
-      entries,
-      currentPage,
-      totalPages,
-    },
-  };
+  try {
+    const resp = await axios.get(apiUrl);
+    const pagination = resp.data.response.pagination;
+    const { totalPages } = pagination;
+    const entries = resp.data.response.content;
+
+    return {
+      props: {
+        entries,
+        currentPage,
+        totalPages,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error.message);
+
+    return {
+      props: {
+        entries: [],
+        currentPage,
+        totalPages: 0,
+      },
+    };
+  }
 }
 
 export default BlogPage;
