@@ -91,6 +91,7 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
 export async function getServerSideProps({ query }) {
   const currentPage = parseInt(query.page, 10) || 1;
   const apiUrl = `${process.env.API_BASE_URL}/api/publications`;
+  console.log(apiUrl)
 
   try {
     const resp = await axios.get(apiUrl);
