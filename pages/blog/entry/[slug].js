@@ -8,7 +8,7 @@ import prism from 'rehype-prism-plus';
 import Avatar from '@mui/material/Avatar';
 
 import Link from "next/link";
-import { parseISO, format } from "date-fns";/Users/luisalfredoalcalamurguia/Documents/Frontend/blog-next/blog/pages
+import { parseISO, format } from "date-fns";
 const ArticlePage = ({ article }) => {
   return (
     <main className="flex flex-col justify-center pt-32 pb-40">
