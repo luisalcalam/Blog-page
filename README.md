@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Add NEXT_PUBLIC_API_BASE_URL variable to conect with API Rest
+
 First, run the development server:
 
 ```bash
