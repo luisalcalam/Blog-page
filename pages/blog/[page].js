@@ -46,7 +46,7 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
 
 export async function getServerSideProps({ query }) {
   const currentPage = parseInt(query.page, 10) || 1;
-  const resp = await axios(`${process.env.NEXT_PUBLIC_API_BASE_URL}/publications?currentPage=${currentPage}`);
+  const resp = await axios(`${process.env.API_BASE_URL}/publications?currentPage=${currentPage}`);
   const pagination = resp.data.response.pagination;
   const {totalPages} = pagination;
   const entries = resp.data.response.content;

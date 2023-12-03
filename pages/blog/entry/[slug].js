@@ -8,7 +8,7 @@ import prism from 'rehype-prism-plus';
 import Avatar from '@mui/material/Avatar';
 
 import Link from "next/link";
-import { parseISO, format } from "date-fns";
+import { parseISO, format } from "date-fns";/Users/luisalfredoalcalamurguia/Documents/Frontend/blog-next/blog/pages
 const ArticlePage = ({ article }) => {
   return (
     <main className="flex flex-col justify-center pt-32 pb-40">
@@ -46,7 +46,7 @@ const ArticlePage = ({ article }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const resp = await axios(`${process.env.NEXT_PUBLIC_API_BASE_URL}/publications/slug/${params.slug}`);
+  const resp = await axios(`${process.env.API_BASE_URL}/publications/slug/${params.slug}`);
   const article = resp.data.response;
 
   return {

@@ -8,15 +8,9 @@ import Article from '@/componets/article';
 const BlogPage = ({ entries, currentPage, totalPages }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   useEffect(() => {
-    // Aquí deberías realizar la lógica para verificar la autenticación del usuario
-    // Puedes hacer una solicitud al servidor para comprobar si el usuario está autenticado
-    // y actualizar el estado en consecuencia.
-    // Puedes usar una función asíncrona para realizar la solicitud.
 
-    const checkAuthentication = async () => {
+    const checkAuthentication = () => {
       try {
-        // Realiza la solicitud al servidor para verificar la autenticación
-        // Puedes usar axios u otra librería para esto
         const userId = getCookie('userId'); 
         if (userId) setIsAuthenticated(true);
         else setIsAuthenticated(false);
@@ -26,7 +20,6 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
       }
     };
 
-    // Llama a la función para verificar la autenticación cuando el componente se monta
     checkAuthentication();
   }, []);
   return (
@@ -97,7 +90,7 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
 
 export async function getServerSideProps({ query }) {
   const currentPage = parseInt(query.page, 10) || 1;
-  const resp = await axios(`${process.env.NEXT_PUBLIC_API_BASE_URL}/publications`);
+  const resp = await axios(`${process.env.API_BASE_URL}/publications`);
   const pagination = resp.data.response.pagination;
   const {totalPages} = pagination;
   const entries = resp.data.response.content;
