@@ -1,4 +1,4 @@
-import { useState } from 'react';
+'use client'
 import { useRouter } from 'next/router';
 import { setCookie } from 'cookies-next';
 import { TextField, Button, Container, Typography, Grid, CssBaseline } from '@mui/material';
@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 const LogIn = () => {
-  const url = process.env.API_BASE_URL
+  const url = process.env.NEXT_PUBLIC_API_BASE_URL
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
@@ -30,7 +30,7 @@ const LogIn = () => {
     try {
       console.log({url});
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/login`,
+        `${url}/auth/login`,
         {
           username,
           password

@@ -90,7 +90,7 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
 
 export async function getServerSideProps({ query }) {
   const currentPage = parseInt(query.page, 10) || 1;
-  const apiUrl = `${process.env.API_BASE_URL}/api/publications`;
+  const apiUrl = `${process.env.API_BASE_URL}/publications`;
   console.log(apiUrl)
 
   try {
