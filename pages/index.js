@@ -8,6 +8,7 @@ const Home = () => {
       <h1 className="text-4xl font-bold mb-4">Bienvenido a nuestro Blog</h1>
       <p className="text-center mb-8">
         Para crear una entrada, por favor inicia sesión.
+        Puedes entrar al blog sin iniciar sesión.
       </p>
       <div className="flex space-x-4 mb-8">
         <Link href="/login">

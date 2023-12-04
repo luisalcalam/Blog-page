@@ -39,7 +39,7 @@ const SignIn = () => {
           password
         }
       );
-      router.push('/');
+      router.push('/blog');
       console.log('Información enviada:', { response });
     } catch (error) {
       console.log(error);
