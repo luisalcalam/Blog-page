@@ -1,5 +1,6 @@
 // pages/signin.js
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { TextField, Button, Container, Typography, Grid, CssBaseline } from '@mui/material';
 import axios from 'axios';
 
@@ -8,6 +9,7 @@ const SignIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
