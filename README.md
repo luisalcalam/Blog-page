@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+See the result:
+- https://blog-page-ldiyfq5bo-luis-alcalas-projects.vercel.app/blog
+
 ## Getting Started
 
 Add NEXT_PUBLIC_API_BASE_URL variable to conect with API Rest

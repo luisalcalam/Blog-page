@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Pagination, PaginationItem, Button, AppBar, Toolbar, Typography, Container } from '@mui/material';
 import Link from 'next/link';
 import Article from '@/componets/article';
+import SearchComponent from '@/componets/search'
 
 const BlogPage = ({ entries, currentPage, totalPages }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -22,6 +23,11 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
 
     checkAuthentication();
   }, []);
+  const handleSearch = (searchResults) => {
+    entries = searchResults.content
+    currentPage = searchResults.pagination.currentPage;
+    totalPages = searchResults.pagination.totalPages;
+  };
   return (
     <div>
       <AppBar position="static" sx={{ backgroundColor: '#C0C0C0' }}>
@@ -51,6 +57,7 @@ const BlogPage = ({ entries, currentPage, totalPages }) => {
       </AppBar>
       <div className="px-8">
       <main className="max-w-7xl mx-auto pt-10 pb-40">
+        <SearchComponent onSearch={handleSearch} currentPage={currentPage} />
         <section className="pt-5">
           <h2 className="text-4xl mb-4">Blog gratuito</h2>
           <p className="mb-5">
